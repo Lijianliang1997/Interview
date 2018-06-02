@@ -9,8 +9,9 @@ import java.util.LinkedList;
  */
 public class PerfectSquare {
     public int numSquares (int n) {
-        if(n == 0)
+        if(n == 0) {
             return 0;
+        }
 
         LinkedList<Pair<Integer, Integer>> queue = new LinkedList<Pair<Integer, Integer>>();
         queue.addLast(new Pair<Integer, Integer>(n, 0));
@@ -23,8 +24,9 @@ public class PerfectSquare {
             int num = front.getKey();
             int step = front.getValue();
 
-            if(num == 0)
+            if(num == 0) {
                 return step;
+            }
 
             for(int i = 1 ; num - i*i >= 0 ; i ++){
                 int a = num - i*i;
