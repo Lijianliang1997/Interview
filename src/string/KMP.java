@@ -8,38 +8,40 @@ public class KMP {
         if(str == null || sub == null || str.length() == 0 || sub.length() == 0){
             throw new IllegalArgumentException("str或者sub不能为空");
         }
-
-        int j = 0;
-        int[] n = next(sub);
-        for (int i = 0; i < str.length(); i ++) {
-            while (j > 0 && str.charAt(i) != str.charAt(j)) {
-                j = n[j - 1];
-            }
-            if (str.charAt(i) == str.charAt(j)) {
+        int i =0, j =0;
+        int[] next = next(sub);
+        while (j < next.length && i < str.length()) {
+            if (j == -1 || str.charAt(i) == sub.charAt(i)) {
+                i ++;
                 j ++;
-            }
-
-            if (sub.length() == j) {
-                int index = i - j + 1;
-                return index;
+            } else {
+                j = next[j];
             }
         }
-        return -1;
+        if ( j < next.length){
+            return -1;
+        } else {
+            return i - sub.length();
+        }
     }
 
     public int[] next (String sub) {
-        int [] n = new int[sub.length()];
-        int x = 0;
-        for (int i = 0; i < sub.length(); i ++) {
-            while (x > 0 && sub.charAt(i) != sub.charAt(x)) {
-                x = n[x - 1];
+        int [] next = new int[sub.length()];
+        int len = 0;
+        int i ,j;
+        i = 0;
+        j = next[0] = 1;
+        while (i < len - 1) {
+            while (j != -1 && sub.charAt(i) != sub.charAt(j)) {
+                j = next[j];
             }
-
-            if (sub.charAt(i) == sub.charAt(x)) {
-                x ++;
-            }
-            n [i] = x;
+            next[++i] = ++j;
         }
-        return n;
+        return next;
+    }
+
+    public static void main(String[] args) {
+        KMP kmp = new KMP();
+        System.out.println(kmp.kmp("hello", "ll"));
     }
 }
