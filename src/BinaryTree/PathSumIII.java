@@ -5,8 +5,9 @@ package BinaryTree;
  */
 public class PathSumIII {
         public int pathSum (TreeNode root, int sum) {
-            if(root == null)
+            if(root == null) {
                 return 0;
+            }
 
             return findPath(root, sum)
                     + pathSum(root.left , sum)
