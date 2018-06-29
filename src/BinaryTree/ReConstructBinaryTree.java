@@ -17,8 +17,6 @@ public class ReConstructBinaryTree {
         if (pre.length != in.length) {
             return null;
         }
-//        System.out.println(Arrays.toString(pre));
-//        System.out.println(Arrays.toString(in));
         if (pre.length == 0) {
             return null;
         }
@@ -36,7 +34,6 @@ public class ReConstructBinaryTree {
         return tree;
     }
     public static void pre(TreeNode treeNode) {
-            System.out.println(treeNode.val);
             if (treeNode.left != null) {
                 pre(treeNode.left);
             }
