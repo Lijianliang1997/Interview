@@ -14,10 +14,7 @@ public class ReConstructBinaryTree {
      * @return
      */
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-        if (pre.length != in.length) {
-            return null;
-        }
-        if (pre.length == 0) {
+        if (pre.length != in.length && pre.length == 0) {
             return null;
         }
         TreeNode tree = new TreeNode(pre[0]);
