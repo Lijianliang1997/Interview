@@ -7,8 +7,7 @@ public class TreeNode {
     int val = 0;
     TreeNode left;
     TreeNode right;
-    TreeNode (int x) {
+    TreeNode (int val) {
         this.val = val;
-        System.out.println(this.val);
     }
 }
