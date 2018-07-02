@@ -59,12 +59,4 @@ public class SumOfLeftLeaves {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-        int[] pre = {3,9,20, 15,7};
-        int[] in = {9,3,15,20,7};
-        TreeNode root = ReConstructBinaryTree.reConstructBinaryTree(pre, in);
-        SumOfLeftLeaves sumOfLeftLeaves = new SumOfLeftLeaves();
-        System.out.println(sumOfLeftLeaves.sumOfLeftLeaves(root));
-    }
 }
