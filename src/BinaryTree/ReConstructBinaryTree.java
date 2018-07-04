@@ -14,7 +14,7 @@ public class ReConstructBinaryTree {
      * @return
      */
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
-        if (pre.length != in.length && pre.length == 0) {
+         if (pre == null || pre.length != in.length || pre.length == 0) {
             return null;
         }
         TreeNode tree = new TreeNode(pre[0]);
@@ -25,7 +25,7 @@ public class ReConstructBinaryTree {
         for (int i = 0; i < in.length; i ++) {
             if (in[i] == pre[0]) {
                 tree.left = reConstructBinaryTree(Arrays.copyOfRange(pre, 1 , i + 1), Arrays.copyOfRange(in, 0 , i));
-                tree.right = reConstructBinaryTree(Arrays.copyOfRange(pre, i + 1 , pre.length), Arrays.copyOfRange(in, i , in.length));
+                tree.right = reConstructBinaryTree(Arrays.copyOfRange(pre, i + 1 , pre.length), Arrays.copyOfRange(in, i + 1 , in.length));
             }
           }
         return tree;
