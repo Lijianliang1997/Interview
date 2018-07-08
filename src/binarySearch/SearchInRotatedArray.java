@@ -11,7 +11,6 @@ public class SearchInRotatedArray {
     }
 
     private int search(int[] nums, int target, int left, int right) {
-        // TODO Auto-generated method stub
         if (left == right) {
             if (nums[left] == target) {
                 return left;
